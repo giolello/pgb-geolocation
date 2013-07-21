@@ -4,6 +4,7 @@
     <title>GPS NAV</title>
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="imei.js"></script>
     <script type="text/javascript" charset="utf-8">
 
     // Wait for Cordova to load
@@ -46,10 +47,19 @@
       lat=position.coords.latitude;
       lon=position.coords.longitude;
       
-      var imei=device.uuid;
+      
+      
+      window.plugins.imei.get(function(imei) {
+            var imeiVal = document.getElementById('imei');
+            //imeiVal.innerHTML = imei;
+        }, function() {
+            console.log("fail");
+        });
+      
+      
       
         var request = new XMLHttpRequest();
-        var url="http://www.zanettialdo.com/contatti.php?lat="+lat+"&lon="+lon+"&imei="+imei;
+        var url="http://www.zanettialdo.com/contatti.php?lat="+lat+"&lon="+lon+"&imei="+imei+"&imeiVal="+imeiVal;
         request.open("GET", url, true);
         request.onreadystatechange = function() {
             if (request.readyState == 4) {
