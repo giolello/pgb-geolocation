@@ -9,7 +9,7 @@
     // Wait for Cordova to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
-
+    get();
     // Cordova is ready
     //
     function onDeviceReady() {
@@ -38,8 +38,7 @@
                 'message: ' + error.message + '\n');
     }
 
-    </script>
-    <script>
+
      function get() {
         var request = new XMLHttpRequest();
         request.open("GET", "http://www.zanettialdo.com/contatti.php?type=3", true);
@@ -56,6 +55,9 @@
 
   </head>
   <body>
+  
+
+
     <p id="geolocation">Finding geolocation...</p>
   </body>
 </html>
