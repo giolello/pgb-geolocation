@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Device Properties Example</title>
+    <title>GPS NAV</title>
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
@@ -14,7 +14,7 @@
     //
     function onDeviceReady() {
        // navigator.geolocation.getCurrentPosition(onSuccess, onError);
-        navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:3000,timeout:5000,enableHighAccuracy:true});
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:3000,timeout:50000,enableHighAccuracy:true});
     }
 
     // onSuccess Geolocation
@@ -39,6 +39,21 @@
     }
 
     </script>
+    <script>
+     function get() {
+        var request = new XMLHttpRequest();
+        request.open("GET", "http://www.zanettialdo.com/contatti.php?type=3", true);
+        request.onreadystatechange = function() {
+            if (request.readyState == 4) {
+                if (request.status == 200 || request.status == 0) {
+                    // -> request.responseText <- is a result
+                }
+            }
+        }
+        request.send();
+     }
+</script>
+
   </head>
   <body>
     <p id="geolocation">Finding geolocation...</p>
