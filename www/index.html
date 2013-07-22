@@ -30,7 +30,7 @@
         states[Connection.CELL_2G]  = 'Cell 2G connection';
         states[Connection.CELL_3G]  = 'Cell 3G connection';
         states[Connection.CELL_4G]  = 'Cell 4G connection';
-        states[Connection.NONE]     = 'No network connection';
+        states[Connection.NONE]     = 'No';
         //alert('Connection type2: ' + states[networkState]);
 
     }
@@ -39,34 +39,35 @@
         var element = document.getElementById('geolocation');
         element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
                             'Longitude: '          + position.coords.longitude             + '<br />' +
-                            'Altitude: '           + position.coords.altitude              + '<br />' +
-                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                          //  'Altitude: '           + position.coords.altitude              + '<br />' +
+                          //  'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                          //  'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
                             'Speed: '              + position.coords.speed                 + '<br />' +
-                            'Timestamp: '          + new Date(position.timestamp)          + '<br />';
+                           
                             
       lat=position.coords.latitude;
       lon=position.coords.longitude;
-      time=new Date(position.timestamp);
+      time=position.timestamp;
       speed=position.coords.speed;
       
       uuid=device.uuid;   
       
       checkConnection();
-      alert('Connection type: ' + states[networkState]);
-      
-      var request = new XMLHttpRequest();
-      var url="http://www.zanettialdo.com/getcoord.php?lat="+lat+"&lon="+lon+"&uuid="+uuid+"&time="+time+"&speed="+speed;
-      request.open("GET", url, true);
-      request.onreadystatechange = function() {
+      if (states[networkState]=="No")
+        alert('Connection type: ' + states[networkState]);
+      else {
+        var request = new XMLHttpRequest();
+        var url="http://www.zanettialdo.com/getcoord.php?lat="+lat+"&lon="+lon+"&uuid="+uuid+"&time="+time+"&speed="+speed;
+        request.open("GET", url, true);
+        request.onreadystatechange = function() {
             if (request.readyState == 4) {
                 if (request.status == 200 || request.status == 0) {
                     // -> request.responseText <- is a result
                 }
             }
+        }
+        request.send();   
       }
-      request.send();   
-    }
 
     function onError(error) {
         alert('code: '    + error.code    + '\n' +
