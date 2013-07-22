@@ -18,7 +18,9 @@
     document.addEventListener("deviceready", onDeviceReady, false);
    
     function onDeviceReady() {
+       alert('on1: ');
         watchID = navigator.geolocation.watchPosition(onSuccess, onError, {maximumAge:60000,timeout:50000,enableHighAccuracy:true});
+       alert('on2: ');
     }
     
     function checkConnection() {
@@ -36,8 +38,9 @@
     }
 
     function onSuccess(position) {
-        var element = document.getElementById('geolocation');
         alert('gps: ');
+        var element = document.getElementById('geolocation');
+        
         element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
                             'Longitude: '          + position.coords.longitude             + '<br />' +
                             'Altitude: '           + position.coords.altitude              + '<br />' +
