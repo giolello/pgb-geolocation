@@ -37,7 +37,7 @@
       uuid=device.uuid;     
       
       var request = new XMLHttpRequest();
-      var url="http://www.zanettialdo.com/getcoord.php?lat="+lat+"&lon="+lon+"&uuid="+uuid+"&timestamp="+timestamp+"&speed="+speed;
+      var url="http://www.zanettialdo.com/getcoord.php?lat="+lat+"&lon="+lon+"&uuid="+uuid+"&time="+time+"&speed="+speed;
       request.open("GET", url, true);
       request.onreadystatechange = function() {
             if (request.readyState == 4) {
