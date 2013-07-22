@@ -37,25 +37,27 @@
 
     function onSuccess(position) {
         var element = document.getElementById('geolocation');
+        alert('gps: ');
         element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
                             'Longitude: '          + position.coords.longitude             + '<br />' +
-                          //  'Altitude: '           + position.coords.altitude              + '<br />' +
-                          //  'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                          //  'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                            'Altitude: '           + position.coords.altitude              + '<br />' +
+                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
                             'Speed: '              + position.coords.speed                 + '<br />';
                            
-                            
+      alert('gpsf: ');                      
       lat=position.coords.latitude;
       lon=position.coords.longitude;
       time=position.timestamp;
+      alert('time: ' + time);
       //time=1;
       speed=position.coords.speed;
       
       uuid=device.uuid;   
-      element.innerHTML ='uuid:'+uuid;
+      //element.innerHTML ='uuid:'+uuid;
       
       checkConnection();
-      
+      alert('connect: ');
       //alert('Connection type: ' + states[networkState]);
       if (states[networkState]=="No network connection") {
         alert('Connection type: ' + states[networkState]);
