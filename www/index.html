@@ -10,6 +10,7 @@
     var lon=0.1;
     var uuid="";
     var time=0;
+    var speed=0;
     var watchID = null;
     
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -31,7 +32,7 @@
                             
       lat=position.coords.latitude;
       lon=position.coords.longitude;
-      time=position.timestamp;
+      time=position.coords.timestamp;
       speed=position.coords.speed;
       
       uuid=device.uuid;     
