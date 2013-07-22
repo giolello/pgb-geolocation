@@ -13,6 +13,7 @@
     var speed=0;
     var watchID = null;
     var states = {};
+    var networkState=null;
     
     document.addEventListener("deviceready", onDeviceReady, false);
    
@@ -21,7 +22,7 @@
     }
     
     function checkConnection() {
-        var networkState = navigator.network.connection.type;
+        networkState = navigator.network.connection.type;
 
         states[Connection.UNKNOWN]  = 'Unknown connection';
         states[Connection.ETHERNET] = 'Ethernet connection';
@@ -30,7 +31,7 @@
         states[Connection.CELL_3G]  = 'Cell 3G connection';
         states[Connection.CELL_4G]  = 'Cell 4G connection';
         states[Connection.NONE]     = 'No network connection';
-        alert('Connection type2: ' + states[networkState]);
+        //alert('Connection type2: ' + states[networkState]);
 
     }
 
