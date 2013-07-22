@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.asa.newidea" version="1.0.0">
     <name>
-        Geo-location Test
+        NAV GPS
     </name>
 	<description>
         An example of phonegap build geo-location. 
     </description>
 
-    <author href="https://sub.example.com" email="someone@email.com">
+    <author href="https://sub.example.com" email="perna.angelo@gmail.com">
         Yourname
     </author>
     <gap:platforms>
@@ -15,9 +15,9 @@
         <gap:platform name="webos"/>
         <gap:platform name="symbian.wrt"/>
         <gap:platform name="blackberry" project="widgets"/>
-    </gap:platforms>
-	
-	<feature name="http://api.phonegap.com/1.0/device"/>
+    </gap:platforms>	
+
+	<feature name="http://api.phonegap.com/1.0/device" />
 	<feature name="http://api.phonegap.com/1.0/battery"/>
 	<feature name="http://api.phonegap.com/1.0/camera"/>
 	<feature name="http://api.phonegap.com/1.0/contacts"/>
@@ -27,6 +27,4 @@
 	<feature name="http://api.phonegap.com/1.0/network"/>
 	<feature name="http://api.phonegap.com/1.0/notification"/>
 	
-        <plugin name="IMEI" value="com.simonmacdonald.imei.IMEIPlugin" />
-        <plugin name="Device" value="org.apache.cordova.Device" />
 </widget>
