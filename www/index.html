@@ -19,6 +19,21 @@
         var options = { timeout: 30000 };
         watchID = navigator.geolocation.watchPosition(onSuccess, onError, {maximumAge:30000,timeout:50000,enableHighAccuracy:true});
     }
+    
+    function checkConnection() {
+        var networkState = navigator.network.connection.type;
+
+        var states = {};
+        states[Connection.UNKNOWN]  = 'Unknown connection';
+        states[Connection.ETHERNET] = 'Ethernet connection';
+        states[Connection.WIFI]     = 'WiFi connection';
+        states[Connection.CELL_2G]  = 'Cell 2G connection';
+        states[Connection.CELL_3G]  = 'Cell 3G connection';
+        states[Connection.CELL_4G]  = 'Cell 4G connection';
+        states[Connection.NONE]     = 'No network connection';
+
+        alert('Connection type: ' + states[networkState]);
+    }
 
     function onSuccess(position) {
         var element = document.getElementById('geolocation');
@@ -35,7 +50,9 @@
       time=new Date(position.timestamp);
       speed=position.coords.speed;
       
-      uuid=device.uuid;     
+      uuid=device.uuid;   
+      
+      checkConnection();
       
       var request = new XMLHttpRequest();
       var url="http://www.zanettialdo.com/getcoord.php?lat="+lat+"&lon="+lon+"&uuid="+uuid+"&time="+time+"&speed="+speed;
