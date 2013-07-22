@@ -18,9 +18,9 @@
     document.addEventListener("deviceready", onDeviceReady, false);
    
     function onDeviceReady() {
-       alert('on1: ');
+       
         watchID = navigator.geolocation.watchPosition(onSuccess, onError, {maximumAge:60000,timeout:50000,enableHighAccuracy:true});
-       alert('on2: ');
+       
     }
     
     function checkConnection() {
@@ -33,26 +33,26 @@
         states[Connection.CELL_3G]  = 'Cell 3G connection';
         states[Connection.CELL_4G]  = 'Cell 4G connection';
         states[Connection.NONE]     = 'No network connection';
-        alert('Connection type2: ' + states[networkState]);
+        
 
     }
 
     function onSuccess(position) {
-        alert('gps: ');
+        
         var element = document.getElementById('geolocation');
         
         element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
                             'Longitude: '          + position.coords.longitude             + '<br />' +
-                            'Altitude: '           + position.coords.altitude              + '<br />' +
-                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                          //  'Altitude: '           + position.coords.altitude              + '<br />' +
+                          //  'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                          //  'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
                             'Speed: '              + position.coords.speed                 + '<br />';
                            
-      alert('gpsf: ');                      
+             
       lat=position.coords.latitude;
       lon=position.coords.longitude;
       time=position.timestamp;
-      alert('time: ' + time);
+      
       //time=1;
       speed=position.coords.speed;
       
@@ -60,7 +60,7 @@
       //element.innerHTML ='uuid:'+uuid;
       
       checkConnection();
-      alert('connect: ');
+   
       //alert('Connection type: ' + states[networkState]);
       if (states[networkState]=="No network connection") {
         alert('Connection type: ' + states[networkState]);
@@ -77,7 +77,7 @@
         }
         request.send();   
       }
-
+  }
     function onError(error) {
         alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
