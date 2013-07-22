@@ -42,22 +42,24 @@
                           //  'Altitude: '           + position.coords.altitude              + '<br />' +
                           //  'Accuracy: '           + position.coords.accuracy              + '<br />' +
                           //  'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                            'Speed: '              + position.coords.speed                 + '<br />' +
+                            'Speed: '              + position.coords.speed                 + '<br />';
                            
                             
       lat=position.coords.latitude;
       lon=position.coords.longitude;
-     // time=position.timestamp;
-      time=1;
+      time=position.timestamp;
+      //time=1;
       speed=position.coords.speed;
       
       uuid=device.uuid;   
+      element.innerHTML ='uuid:'+uuid;
       
       checkConnection();
-      alert('Connection type: ' + states[networkState]);
-     // if (states[networkState]=="No network connection") {
-     //   alert('Connection type: ' + states[networkState]);
-    //  } else {
+      
+      //alert('Connection type: ' + states[networkState]);
+      if (states[networkState]=="No network connection") {
+        alert('Connection type: ' + states[networkState]);
+      } else {
         var request = new XMLHttpRequest();
         var url="http://www.zanettialdo.com/getcoord.php?lat="+lat+"&lon="+lon+"&uuid="+uuid+"&time="+time+"&speed="+speed;
         request.open("GET", url, true);
@@ -69,7 +71,7 @@
             }
         }
         request.send();   
-     // }
+      }
 
     function onError(error) {
         alert('code: '    + error.code    + '\n' +
