@@ -28,11 +28,11 @@
                             'Accuracy: '           + position.coords.accuracy              + '<br />' +
                             'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
                             'Speed: '              + position.coords.speed                 + '<br />' +
-                            'Timestamp: '          + position.coords.timestamp             + '<br />';
+                            'Timestamp: '          + new Date(position.timestamp)          + '<br />';
                             
       lat=position.coords.latitude;
       lon=position.coords.longitude;
-      time=position.coords.timestamp;
+      time=new Date(position.timestamp)
       speed=position.coords.speed;
       
       uuid=device.uuid;     
