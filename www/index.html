@@ -30,7 +30,7 @@
         states[Connection.CELL_2G]  = 'Cell 2G connection';
         states[Connection.CELL_3G]  = 'Cell 3G connection';
         states[Connection.CELL_4G]  = 'Cell 4G connection';
-        states[Connection.NONE]     = 'No';
+        states[Connection.NONE]     = 'No network connection';
         //alert('Connection type2: ' + states[networkState]);
 
     }
@@ -54,7 +54,7 @@
       
       checkConnection();
       alert('Connection type: ' + states[networkState]);
-      if (states[networkState]=="No") {
+      if (states[networkState]=="No network connection") {
         alert('Connection type: ' + states[networkState]);
       } else {
         var request = new XMLHttpRequest();
