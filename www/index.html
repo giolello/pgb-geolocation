@@ -18,7 +18,10 @@
     document.addEventListener("deviceready", onDeviceReady, false);
    
     function onDeviceReady() {
-       
+      
+      checkConnection();
+             alert('Connection type: ' + states[networkState]);
+
         watchID = navigator.geolocation.watchPosition(onSuccess, onError, {maximumAge:60000,timeout:50000,enableHighAccuracy:true});
        
     }
@@ -34,6 +37,7 @@
         states[Connection.CELL_4G]  = 'Cell 4G connection';
         states[Connection.NONE]     = 'No network connection';
         
+      alert('Connection type: ' + states[networkState]);
 
     }
 
@@ -59,7 +63,7 @@
       element.innerHTML =element.innerHTML+'+ '<br />' + time:'+time;
       checkConnection();
    
-      //alert('Connection type: ' + states[networkState]);
+      alert('Connection type: ' + states[networkState]);
       if (states[networkState]=="No network connection") {
         alert('Connection type: ' + states[networkState]);
       } else {
